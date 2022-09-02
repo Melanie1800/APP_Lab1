@@ -27,12 +27,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Para memoria
-        Button btnTres= findViewById(R.id.btnmemoria);
-        btnMemoria.setOnClickListener(new View.OnClickListener() {
+        Button btnTres= findViewById(R.id.btnTres);
+        btnTres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(MainActivity.this,MainActivity2.class);
-                //al inciar le paso los datos
+                Intent intent= new Intent(MainActivity.this,TresActivity.class);
                 startActivity(intent);
 
             }
