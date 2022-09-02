@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(MainActivity.this,MainActivity2.class);
+                //al inciar le paso los datos
                 startActivity(intent);
 
             }
