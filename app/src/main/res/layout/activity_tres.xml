@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:minWidth="50dp"
     tools:context=".TresActivity">
 
     <TextView
@@ -31,9 +32,9 @@
 
             <Button
                 android:id="@+id/btn1_tres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+" />
 
             <Space
                 android:layout_width="10dp"
@@ -41,9 +42,9 @@
 
             <Button
                 android:id="@+id/btn2_tres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+" />
 
             <Space
                 android:layout_width="10dp"
@@ -51,9 +52,9 @@
 
             <Button
                 android:id="@+id/btn3_tres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+" />
 
         </TableRow>
 
@@ -63,9 +64,9 @@
 
             <Button
                 android:id="@+id/btn4_tres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+" />
 
             <Space
                 android:layout_width="10dp"
@@ -73,9 +74,9 @@
 
             <Button
                 android:id="@+id/btn5_tres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+" />
 
             <Space
                 android:layout_width="10dp"
@@ -83,9 +84,9 @@
 
             <Button
                 android:id="@+id/btn6_tres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+" />
 
         </TableRow>
 
@@ -95,9 +96,9 @@
 
             <Button
                 android:id="@+id/btn7_tres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+" />
 
             <Space
                 android:layout_width="10dp"
@@ -105,9 +106,9 @@
 
             <Button
                 android:id="@+id/btn8_tres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+" />
 
             <Space
                 android:layout_width="10dp"
@@ -115,9 +116,9 @@
 
             <Button
                 android:id="@+id/btn9_tres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="+" />
 
         </TableRow>
 
