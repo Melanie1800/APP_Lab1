@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TresActivity extends AppCompatActivity {
 
     private String[] valores = {"-","-","-","-","-","-","-","-","-"};
     private String estado = "jugando";
+    private ArrayList<String> estadisticas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,6 +212,7 @@ public class TresActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(TresActivity.this,EstadisticsTresActivity.class);
+                intent.putExtra("estadisticas",estadisticas);
                 startActivity(intent);
             }
         });
@@ -218,88 +221,108 @@ public class TresActivity extends AppCompatActivity {
 
 
     private boolean verificarWin(){
-        String msgX = "Gano 1";
-        String msgO = "Gano O";
+        String msgX = "Ganó X";
+        String msgO = "Ganó O";
         if(!valores[2].equals("-") && valores[2].equals(valores[4]) && valores[2].equals(valores[6]) ){
             estado="gano";
-            if(valores[2].equals("1")){
+            if(valores[2].equals("X")){
                 Toast.makeText(this, msgX, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgX);
             }else{
                 Toast.makeText(this, msgO, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgO);
             }
             return true;
         }
         if(!valores[0].equals("-") && valores[0].equals(valores[3]) && valores[3].equals(valores[6]) ){
             estado="gano";
-            if(valores[0].equals("1")){
+            if(valores[0].equals("X")){
                 Toast.makeText(this, msgX, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgX);
             }else{
                 Toast.makeText(this, msgO, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgO);
             }
             return true;
         }
         if(!valores[1].equals("-") && valores[1].equals(valores[4]) && valores[1].equals(valores[7]) ){
             estado="gano";
-            if(valores[1].equals("1")){
+            if(valores[1].equals("X")){
                 Toast.makeText(this, msgX, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgX);
             }else{
                 Toast.makeText(this, msgO, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgO);
             }
             return true;
         }
         if(!valores[2].equals("-") && valores[2].equals(valores[5]) && valores[2].equals(valores[8]) ){
             estado="gano";
-            if(valores[2].equals("1")){
+            if(valores[2].equals("X")){
                 Toast.makeText(this, msgX, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgX);
             }else{
                 Toast.makeText(this, msgO, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgO);
             }
             return true;
         }
         if(!valores[0].equals("-") && valores[0].equals(valores[4]) && valores[0].equals(valores[8]) ){
             estado="gano";
-            if(valores[0].equals("1")){
+            if(valores[0].equals("X")){
                 Toast.makeText(this, msgX, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgX);
             }else{
                 Toast.makeText(this, msgO, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgO);
             }
             return true;
         }
         if(!valores[0].equals("-") && valores[0].equals(valores[1]) && valores[0].equals(valores[2]) ){
             estado="gano";
-            if(valores[0].equals("1")){
+            if(valores[0].equals("X")){
                 Toast.makeText(this, msgX, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgX);
             }else{
                 Toast.makeText(this, msgO, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgO);
             }
             return true;
         }
         if(!valores[3].equals("-") && valores[3].equals(valores[4]) && valores[3].equals(valores[5]) ){
             estado="gano";
-            if(valores[3].equals("1")){
+            if(valores[3].equals("X")){
                 Toast.makeText(this, msgX, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgX);
             }else{
                 Toast.makeText(this, msgO, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgO);
             }
             return true;
         }
         if(!valores[6].equals("-") && valores[6].equals(valores[7]) && valores[6].equals(valores[8]) ){
             estado="gano";
-            if(valores[6].equals("1")){
+            if(valores[6].equals("X")){
                 Toast.makeText(this, msgX, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgX);
             }else{
                 Toast.makeText(this, msgO, Toast.LENGTH_SHORT).show();
+                estadisticas.add(msgO);
             }
             return true;
         }
         if(!Arrays.asList(valores).contains("-")){
-            estado="Nadie ganó";
-            Toast.makeText(this, "Nadie gano", Toast.LENGTH_SHORT).show();
+            estado="empate";
+            Toast.makeText(this, "Empate", Toast.LENGTH_SHORT).show();
+            estadisticas.add("Empate");
         }
         return false;
     }
 
     public void crearNuevo(View view){
+        if(Arrays.asList(valores).contains("-") && !estado.equals("gano")){
+            estadisticas.add("Canceló");
+        }
         ((Button) findViewById(R.id.btn1_tres)).setText("-");
         ((Button) findViewById(R.id.btn2_tres)).setText("-");
         ((Button) findViewById(R.id.btn3_tres)).setText("-");
