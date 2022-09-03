@@ -10,7 +10,9 @@
         android:id="@+id/layoutMemoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
+        android:layout_marginEnd="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/tv_estadistics_memoria"
         app:layout_constraintHorizontal_bias="0.0"
@@ -38,5 +40,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_nuevo_est"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="384dp"
+        android:layout_marginEnd="136dp"
+        android:text="Nuevo juego"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_estadistics_memoria" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
