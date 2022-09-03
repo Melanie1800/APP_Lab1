@@ -32,6 +32,7 @@
                 android:id="@+id/btn11m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
             <Space
@@ -42,6 +43,7 @@
                 android:id="@+id/btn12m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
             <Space
@@ -52,6 +54,7 @@
                 android:id="@+id/btn13m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
             <Space
                 android:layout_width="10dp"
@@ -60,6 +63,7 @@
                 android:id="@+id/btn14m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
         </TableRow>
@@ -72,6 +76,7 @@
                 android:id="@+id/btn21m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
             <Space
@@ -82,6 +87,7 @@
                 android:id="@+id/btn22m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
             <Space
@@ -92,6 +98,7 @@
                 android:id="@+id/btn23m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
             <Space
                 android:layout_width="10dp"
@@ -101,6 +108,7 @@
                 android:id="@+id/btn24m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
         </TableRow>
@@ -113,6 +121,7 @@
                 android:id="@+id/btn31m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
             <Space
@@ -123,6 +132,7 @@
                 android:id="@+id/btn32m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
             <Space
@@ -133,6 +143,7 @@
                 android:id="@+id/btn33m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
             <Space
                 android:layout_width="10dp"
@@ -142,6 +153,7 @@
                 android:id="@+id/btn34m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
         </TableRow>
@@ -154,6 +166,7 @@
                 android:id="@+id/btn41m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
             <Space
@@ -164,6 +177,7 @@
                 android:id="@+id/btn42m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
             <Space
@@ -174,6 +188,7 @@
                 android:id="@+id/btn43m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
             <Space
                 android:layout_width="10dp"
@@ -183,6 +198,7 @@
                 android:id="@+id/btn44m"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:onClick="clickBtn"
                 android:text="-" />
 
         </TableRow>

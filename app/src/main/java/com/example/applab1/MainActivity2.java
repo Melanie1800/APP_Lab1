@@ -16,15 +16,14 @@ import java.util.concurrent.ThreadLocalRandom;
 public class MainActivity2 extends AppCompatActivity {
 
     private String[] letras = {"A","A","B","B","C","C","D","D","E","E","F","F","G","G","H","H"};
-
+    private String[] listSort = sortLetras(letras);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         setTitle("Inicio");
 
-        String[] listSort = sortLetras(letras);
-
+        //Introducir en una función :'v
         ((Button) findViewById(R.id.btn11m)).setText(listSort[0]);
         ((Button) findViewById(R.id.btn12m)).setText(listSort[1]);
         ((Button) findViewById(R.id.btn13m)).setText(listSort[2]);
@@ -49,7 +48,6 @@ public class MainActivity2 extends AppCompatActivity {
                 metodoaEjecutarPasadoUnsegundo();
             }
         }, 1000);
-
 
     }
 
@@ -87,7 +85,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
 
-    public void showBtn(Button btn, String[] listSort){
+    public void showBtn(Button btn){
 
         if(btn.getId() == R.id.btn11m){
             btn.setText(listSort[0]);
@@ -128,15 +126,22 @@ public class MainActivity2 extends AppCompatActivity {
         if(btn.getId() == R.id.btn41m){
             btn.setText(listSort[12]);
         }
-        if(btn.getId() == R.id.btn43m){
+        if(btn.getId() == R.id.btn42m){
             btn.setText(listSort[13]);
         }
-        if(btn.getId() == R.id.btn44m){
+        if(btn.getId() == R.id.btn43m){
             btn.setText(listSort[14]);
         }
+        if(btn.getId() == R.id.btn44m){
+            btn.setText(listSort[15]);
+        }
+    }
 
-
-
+    public void clickBtn(View view){
+        assert view instanceof Button;
+        Button btnClick = (Button) view;
+        showBtn(btnClick);
+        Log.d("Valor btn: ", btnClick.getText().toString());
     }
 
 }
