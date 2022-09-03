@@ -2,6 +2,7 @@ package com.example.applab1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,9 +29,9 @@ public class TresActivity extends AppCompatActivity {
                 String valor;
                 if(estado.equals("jugando")){
                     if(count[0] %2==0){
-                        valor="0";
+                        valor="O";
                     }else{
-                        valor="1";
+                        valor="X";
                     }
                     btn1.setText(valor);
                     valores[0]=valor;
@@ -47,9 +48,9 @@ public class TresActivity extends AppCompatActivity {
                 String valor;
                 if(estado.equals("jugando")){
                     if(count[0] %2==0){
-                        valor="0";
+                        valor="O";
                     }else{
-                        valor="1";
+                        valor="X";
                     }
                     btn2.setText(valor);
                     valores[1]=valor;
@@ -67,9 +68,9 @@ public class TresActivity extends AppCompatActivity {
                 String valor;
                 if(estado.equals("jugando")){
                     if(count[0] %2==0){
-                        valor="0";
+                        valor="O";
                     }else{
-                        valor="1";
+                        valor="X";
                     }
                     btn3.setText(valor);
                     valores[2]=valor;
@@ -87,9 +88,9 @@ public class TresActivity extends AppCompatActivity {
                 String valor;
                 if(estado.equals("jugando")){
                     if(count[0] %2==0){
-                        valor="0";
+                        valor="O";
                     }else{
-                        valor="1";
+                        valor="X";
                     }
                     btn4.setText(valor);
                     valores[3]=valor;
@@ -107,9 +108,9 @@ public class TresActivity extends AppCompatActivity {
                 String valor;
                 if(estado.equals("jugando")){
                     if(count[0] %2==0){
-                        valor="0";
+                        valor="O";
                     }else{
-                        valor="1";
+                        valor="X";
                     }
                     btn5.setText(valor);
                     valores[4]=valor;
@@ -127,9 +128,9 @@ public class TresActivity extends AppCompatActivity {
                 String valor;
                 if(estado.equals("jugando")){
                     if(count[0] %2==0){
-                        valor="0";
+                        valor="O";
                     }else{
-                        valor="1";
+                        valor="X";
                     }
                     btn6.setText(valor);
                     valores[5]=valor;
@@ -149,9 +150,9 @@ public class TresActivity extends AppCompatActivity {
                 String valor;
                 if(estado.equals("jugando")){
                     if(count[0] %2==0){
-                        valor="0";
+                        valor="O";
                     }else{
-                        valor="1";
+                        valor="X";
                     }
                     btn7.setText(valor);
                     valores[6]=valor;
@@ -170,9 +171,9 @@ public class TresActivity extends AppCompatActivity {
                 String valor;
                 if(estado.equals("jugando")){
                     if(count[0] %2==0){
-                        valor="0";
+                        valor="O";
                     }else{
-                        valor="1";
+                        valor="X";
                     }
                     btn8.setText(valor);
                     valores[7]=valor;
@@ -190,9 +191,9 @@ public class TresActivity extends AppCompatActivity {
                 String valor;
                 if(estado.equals("jugando")){
                     if(count[0] %2==0){
-                        valor="0";
+                        valor="O";
                     }else{
-                        valor="1";
+                        valor="X";
                     }
                     btn9.setText(valor);
                     valores[8]=valor;
@@ -201,6 +202,15 @@ public class TresActivity extends AppCompatActivity {
                     count[0]++;
                 }
 
+            }
+        });
+
+        Button btnEst= findViewById(R.id.btnEstadisticas_memoria);
+        btnEst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(TresActivity.this,EstadisticsTresActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -302,6 +312,7 @@ public class TresActivity extends AppCompatActivity {
         Arrays.fill(valores,"-");
         estado = "jugando";
     }
+
 
 }
 

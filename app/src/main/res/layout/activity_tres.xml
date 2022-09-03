@@ -125,7 +125,7 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/btnNuevo_tres"
+        android:id="@+id/btnNuevo_memoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
@@ -136,13 +136,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
     <Button
-        android:id="@+id/btnEstadisticas_tres"
+        android:id="@+id/btnEstadisticas_memoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Estadisticas"
-        app:layout_constraintEnd_toEndOf="@+id/btnNuevo_tres"
-        app:layout_constraintStart_toStartOf="@+id/btnNuevo_tres"
-        app:layout_constraintTop_toBottomOf="@+id/btnNuevo_tres" />
+        app:layout_constraintEnd_toEndOf="@+id/btnNuevo_memoria"
+        app:layout_constraintStart_toStartOf="@+id/btnNuevo_memoria"
+        app:layout_constraintTop_toBottomOf="@+id/btnNuevo_memoria" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
