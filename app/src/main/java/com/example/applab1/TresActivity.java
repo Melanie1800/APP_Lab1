@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ public class TresActivity extends AppCompatActivity {
     private String[] valores = {"-","-","-","-","-","-","-","-","-"};
     private String estado = "jugando";
     private ArrayList<String> estadisticas = new ArrayList<>();
+    private ArrayList<Button> botonesBloqueados = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +31,19 @@ public class TresActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String valor;
-                if(estado.equals("jugando")){
-                    if(count[0] %2==0){
-                        valor="O";
-                    }else{
-                        valor="X";
+                if(!botonesBloqueados.contains(btn1)){
+                    if(estado.equals("jugando")){
+                        if(count[0] %2==0){
+                            valor="O";
+                        }else{
+                            valor="X";
+                        }
+                        botonesBloqueados.add(btn1);
+                        btn1.setText(valor);
+                        valores[0]=valor;
+                        verificarWin();
+                        count[0]++;
                     }
-                    btn1.setText(valor);
-                    valores[0]=valor;
-                    verificarWin();
-                    count[0]++;
                 }
             }
         });
@@ -47,18 +52,20 @@ public class TresActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String valor;
-                if(estado.equals("jugando")){
-                    if(count[0] %2==0){
-                        valor="O";
-                    }else{
-                        valor="X";
+                if(!botonesBloqueados.contains(btn2)){
+                    String valor;
+                    if(estado.equals("jugando")){
+                        if(count[0] %2==0){
+                            valor="O";
+                        }else{
+                            valor="X";
+                        }
+                        botonesBloqueados.add(btn2);
+                        btn2.setText(valor);
+                        valores[1]=valor;
+                        verificarWin();
+                        count[0]++;
                     }
-                    btn2.setText(valor);
-                    valores[1]=valor;
-
-                    verificarWin();
-                    count[0]++;
                 }
             }
         });
@@ -67,18 +74,23 @@ public class TresActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String valor;
-                if(estado.equals("jugando")){
-                    if(count[0] %2==0){
-                        valor="O";
-                    }else{
-                        valor="X";
+                if(!botonesBloqueados.contains(btn3)){
+                    String valor;
+                    if(estado.equals("jugando")){
+                        if(count[0] %2==0){
+                            valor="O";
+                        }else{
+                            valor="X";
+                        }
+                        botonesBloqueados.add(btn3);
+                        btn3.setText(valor);
+                        valores[2]=valor;
+                        verificarWin();
+                        count[0]++;
                     }
-                    btn3.setText(valor);
-                    valores[2]=valor;
-
-                    verificarWin();
-                    count[0]++;
+                    if(botonesBloqueados.contains(btn3)){
+                        Log.d("msg","bloqueado");
+                    }
                 }
             }
         });
@@ -87,18 +99,20 @@ public class TresActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String valor;
-                if(estado.equals("jugando")){
-                    if(count[0] %2==0){
-                        valor="O";
-                    }else{
-                        valor="X";
+                if(!botonesBloqueados.contains(btn4)){
+                    String valor;
+                    if(estado.equals("jugando")){
+                        if(count[0] %2==0){
+                            valor="O";
+                        }else{
+                            valor="X";
+                        }
+                        botonesBloqueados.add(btn4);
+                        btn4.setText(valor);
+                        valores[3]=valor;
+                        verificarWin();
+                        count[0]++;
                     }
-                    btn4.setText(valor);
-                    valores[3]=valor;
-
-                    verificarWin();
-                    count[0]++;
                 }
             }
         });
@@ -107,18 +121,20 @@ public class TresActivity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String valor;
-                if(estado.equals("jugando")){
-                    if(count[0] %2==0){
-                        valor="O";
-                    }else{
-                        valor="X";
+                if(!botonesBloqueados.contains(btn5)){
+                    String valor;
+                    if(estado.equals("jugando")){
+                        if(count[0] %2==0){
+                            valor="O";
+                        }else{
+                            valor="X";
+                        }
+                        botonesBloqueados.add(btn5);
+                        btn5.setText(valor);
+                        valores[4]=valor;
+                        verificarWin();
+                        count[0]++;
                     }
-                    btn5.setText(valor);
-                    valores[4]=valor;
-
-                    verificarWin();
-                    count[0]++;
                 }
             }
         });
@@ -127,21 +143,21 @@ public class TresActivity extends AppCompatActivity {
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String valor;
-                if(estado.equals("jugando")){
-                    if(count[0] %2==0){
-                        valor="O";
-                    }else{
-                        valor="X";
+                if(!botonesBloqueados.contains(btn6)){
+                    String valor;
+                    if(estado.equals("jugando")){
+                        if(count[0] %2==0){
+                            valor="O";
+                        }else{
+                            valor="X";
+                        }
+                        botonesBloqueados.add(btn6);
+                        btn6.setText(valor);
+                        valores[5]=valor;
+                        verificarWin();
+                        count[0]++;
                     }
-                    btn6.setText(valor);
-                    valores[5]=valor;
-
-                    verificarWin();
-                    count[0]++;
                 }
-
-
             }
         });
 
@@ -149,20 +165,21 @@ public class TresActivity extends AppCompatActivity {
         btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String valor;
-                if(estado.equals("jugando")){
-                    if(count[0] %2==0){
-                        valor="O";
-                    }else{
-                        valor="X";
+                if(!botonesBloqueados.contains(btn7)){
+                    String valor;
+                    if(estado.equals("jugando")){
+                        if(count[0] %2==0){
+                            valor="O";
+                        }else{
+                            valor="X";
+                        }
+                        botonesBloqueados.add(btn7);
+                        btn7.setText(valor);
+                        valores[6]=valor;
+                        verificarWin();
+                        count[0]++;
                     }
-                    btn7.setText(valor);
-                    valores[6]=valor;
-
-                    verificarWin();
-                    count[0]++;
                 }
-
             }
         });
 
@@ -170,18 +187,20 @@ public class TresActivity extends AppCompatActivity {
         btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String valor;
-                if(estado.equals("jugando")){
-                    if(count[0] %2==0){
-                        valor="O";
-                    }else{
-                        valor="X";
+                if(!botonesBloqueados.contains(btn8)){
+                    String valor;
+                    if(estado.equals("jugando")){
+                        if(count[0] %2==0){
+                            valor="O";
+                        }else{
+                            valor="X";
+                        }
+                        botonesBloqueados.add(btn8);
+                        btn8.setText(valor);
+                        valores[7]=valor;
+                        verificarWin();
+                        count[0]++;
                     }
-                    btn8.setText(valor);
-                    valores[7]=valor;
-
-                    verificarWin();
-                    count[0]++;
                 }
             }
         });
@@ -190,20 +209,21 @@ public class TresActivity extends AppCompatActivity {
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String valor;
-                if(estado.equals("jugando")){
-                    if(count[0] %2==0){
-                        valor="O";
-                    }else{
-                        valor="X";
+                if(!botonesBloqueados.contains(btn9)){
+                    String valor;
+                    if(estado.equals("jugando")){
+                        if(count[0] %2==0){
+                            valor="O";
+                        }else{
+                            valor="X";
+                        }
+                        botonesBloqueados.add(btn9);
+                        btn9.setText(valor);
+                        valores[8]=valor;
+                        verificarWin();
+                        count[0]++;
                     }
-                    btn9.setText(valor);
-                    valores[8]=valor;
-
-                    verificarWin();
-                    count[0]++;
                 }
-
             }
         });
 
@@ -320,6 +340,7 @@ public class TresActivity extends AppCompatActivity {
     }
 
     public void crearNuevo(View view){
+        botonesBloqueados = new ArrayList<>();
         if(Arrays.asList(valores).contains("-") && !estado.equals("gano")){
             estadisticas.add("Canceló");
         }
