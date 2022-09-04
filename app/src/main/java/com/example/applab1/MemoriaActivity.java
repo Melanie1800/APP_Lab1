@@ -228,6 +228,9 @@ public class MemoriaActivity extends AppCompatActivity {
             estadisticas.add("Canceló");
             Log.d("lol-cancel","cancelo");
         }
+        letras.clear();
+        letrasShuffle.clear();
+        metodoaEjecutarPasadoDossegundos();
         inicioJuego();
     }
 
