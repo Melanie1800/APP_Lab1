@@ -76,18 +76,6 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
 
-    public String[] sortLetras(String[] list){
-        Random rnd = ThreadLocalRandom.current();
-        for(int i=0;i<list.length;i++){
-            int index = rnd.nextInt(16);
-            //Cambio de valores
-            String valor = list[index];
-            list[index] = list[i];
-            list[i] = valor;
-            Log.d("letrasSort",list[i]);
-        }
-        return list;
-    }
 
     public void metodoaEjecutarPasadoDossegundos(){
 
@@ -168,6 +156,7 @@ public class MainActivity2 extends AppCompatActivity {
         String letra = btnClick.getText().toString();
         Log.d("letra",letra);
         if(botonesElegidos.size()<2){
+
             mostrarBtn(btnClick);
             botonesElegidos.add(btnClick);
         }
