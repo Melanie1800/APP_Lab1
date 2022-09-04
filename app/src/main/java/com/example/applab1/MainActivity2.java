@@ -115,19 +115,19 @@ public class MainActivity2 extends AppCompatActivity {
         if(btn.getId() == R.id.btn11m ){
             btn.setText(letras.get(0));
         }
-        if(btn.getId() == R.id.btn13m){
+        if(btn.getId() == R.id.btn12m){
             btn.setText(letras.get(1));
         }
-        if(btn.getId() == R.id.btn14m){
+        if(btn.getId() == R.id.btn13m){
             btn.setText(letras.get(2));
         }
-        if(btn.getId() == R.id.btn21m){
+        if(btn.getId() == R.id.btn14m){
             btn.setText(letras.get(3));
         }
-        if(btn.getId() == R.id.btn22m){
+        if(btn.getId() == R.id.btn21m){
             btn.setText(letras.get(4));
         }
-        if(btn.getId() == R.id.btn24m){
+        if(btn.getId() == R.id.btn22m){
             btn.setText(letras.get(5));
         }
         if(btn.getId() == R.id.btn23m){
