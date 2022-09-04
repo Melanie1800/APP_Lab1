@@ -20,15 +20,17 @@ public class MemoriaActivity extends AppCompatActivity {
     private ArrayList<String> estadisticas = new ArrayList<>();
     private ArrayList<Button> botonesBloqueados = new ArrayList<>();
     private ArrayList<Button> botonesElegidos = new ArrayList<>();
+    private ArrayList<Button> botonesElegidosMoment = new ArrayList<>();
     private String estado = "jugando";
     private Instant inicio;
+    private Instant fin;
+    private Integer contador = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_memoria);
         setTitle("Inicio");
-
         inicioJuego();
 
     }
@@ -110,38 +112,54 @@ public class MemoriaActivity extends AppCompatActivity {
     public void clickBtn(View view){
         assert view instanceof Button;
         Button btnClick = (Button) view;
+        contador++;
         Log.d("lol", String.valueOf(botonesElegidos.size()));
-        if(botonesBloqueados.size()!=16){
-            if(botonesElegidos.size()<2){
-                mostrarBtn(btnClick);
-                botonesElegidos.add(btnClick);
-                if(botonesElegidos.size()==2){
-                    Button buttonElegido= botonesElegidos.get(0);
-                    Button buttonElegido2 = botonesElegidos.get(1);
-                    if(!botonesElegidos.get(0).getText().toString().equals(botonesElegidos.get(1).getText().toString())){
-                        Log.d("lol","son diferentes");
-                        Handler handler1 = new Handler();
-                        handler1.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                buttonElegido.setText("-");
-                                buttonElegido2.setText("-");
+        Log.d("lol-block", String.valueOf(botonesBloqueados.size()));
+        if(!botonesElegidosMoment.contains(btnClick)){
+            if(botonesBloqueados.size()!=16 && !botonesBloqueados.contains(btnClick)){
+                if(botonesElegidos.size()<2){
+                    mostrarBtn(btnClick);
+                    botonesElegidos.add(btnClick);
+                    if(botonesElegidos.size()==2){
+                        botonesElegidosMoment.clear();
+                        Button buttonElegido= botonesElegidos.get(0);
+                        Button buttonElegido2 = botonesElegidos.get(1);
+                        if(!botonesElegidos.get(0).getText().toString().equals(botonesElegidos.get(1).getText().toString())){
+                            Log.d("lol","son diferentes");
+                            Handler handler1 = new Handler();
+                            handler1.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    buttonElegido.setText("-");
+                                    buttonElegido2.setText("-");
+                                }
+                            }, 500);
+                        }else{
+                            Log.d("lol","son iguales");
+                            mostrarBtn(buttonElegido);
+                            mostrarBtn(buttonElegido2);
+                            botonesBloqueados.add(buttonElegido);
+                            botonesBloqueados.add(buttonElegido2);
+                        }
+                        botonesElegidos.clear();
+                        if(botonesBloqueados.size()==16){
+                            estado = "gano";
+                            botonesBloqueados.clear();
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                fin = Instant.now();
                             }
-                        }, 500);
-                    }else{
-                        Log.d("lol","son iguales");
-                        mostrarBtn(buttonElegido);
-                        mostrarBtn(buttonElegido2);
-                        botonesBloqueados.add(buttonElegido);
-                        botonesBloqueados.add(buttonElegido2);
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                                long segundos = fin.getEpochSecond() - inicio.getEpochSecond();
+                                estadisticas.add("Terminó en "+ (segundos) + " seg");
+                                Log.d("lol","gano");
+                            }
+                        }
                     }
-                    botonesElegidos.clear();
+                    if(botonesElegidos.size()==1){
+                        botonesElegidosMoment.add(btnClick);
+                    }
                 }
             }
-        }else{
-            estado = "gano";
-            estadisticas.add("Ganó");
-            Log.d("lol","gano");
         }
     }
 
@@ -199,8 +217,9 @@ public class MemoriaActivity extends AppCompatActivity {
     }
 
     public void nuevoJuego(View view){
-        if(botonesBloqueados.size()!=16 && estado.equals("jugando")){
+        if(botonesBloqueados.size()<16 && contador>0 && estado.equals("jugando")){
             estadisticas.add("Canceló");
+            Log.d("lol-cancel","cancelo");
         }
         inicioJuego();
     }
