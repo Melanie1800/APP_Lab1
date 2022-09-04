@@ -14,7 +14,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MemoriaActivity2 extends AppCompatActivity {
+public class MemoriaActivity extends AppCompatActivity {
 
     private ArrayList<String> letras = new ArrayList<>();
     private ArrayList<String> estadisticas = new ArrayList<>();
@@ -207,7 +207,7 @@ public class MemoriaActivity2 extends AppCompatActivity {
 
     public void estadisticas(View view){
 
-        Intent intent= new Intent(MemoriaActivity2.this,EstadisticsMemoriaActivity.class);
+        Intent intent= new Intent(MemoriaActivity.this,EstadisticsMemoriaActivity.class);
         intent.putExtra("estadisticasMem",estadisticas);
         startActivity(intent);
 
