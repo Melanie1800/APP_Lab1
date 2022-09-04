@@ -2,12 +2,14 @@ package com.example.applab1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,12 +23,17 @@ public class MainActivity2 extends AppCompatActivity {
     private ArrayList<String> estadisticas = new ArrayList<>();
     private ArrayList<Button> botonesBloqueados = new ArrayList<>();
     private ArrayList<Button> botonesElegidos = new ArrayList<>();
+    private Instant inicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         setTitle("Inicio");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            inicio = Instant.now();
+        }
 
         letras.add("A");
         letras.add("A");
@@ -153,14 +160,32 @@ public class MainActivity2 extends AppCompatActivity {
     public void clickBtn(View view){
         assert view instanceof Button;
         Button btnClick = (Button) view;
-        String letra = btnClick.getText().toString();
-        Log.d("letra",letra);
+        Log.d("lol", String.valueOf(botonesElegidos.size()));
         if(botonesElegidos.size()<2){
-
             mostrarBtn(btnClick);
             botonesElegidos.add(btnClick);
+            if(botonesElegidos.size()==2){
+                Button buttonElegido= botonesElegidos.get(0);
+                Button buttonElegido2 = botonesElegidos.get(1);
+                if(!botonesElegidos.get(0).getText().toString().equals(botonesElegidos.get(1).getText().toString())){
+                    Log.d("lol","son diferentes");
+                    Handler handler1 = new Handler();
+                    handler1.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            buttonElegido.setText("-");
+                            buttonElegido2.setText("-");
+                        }
+                    }, 500);
+                }else{
+                    Log.d("lol","son iguales");
+                    mostrarBtn(buttonElegido);
+                    mostrarBtn(buttonElegido2);
+                }
+                botonesElegidos.clear();
+            }
         }
-        Log.d("Valor btn: ", btnClick.getText().toString());
+
     }
 
 }
