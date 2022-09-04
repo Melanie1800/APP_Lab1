@@ -114,47 +114,45 @@ public class MemoriaActivity extends AppCompatActivity {
         assert view instanceof Button;
         Button btnClick = (Button) view;
         contador++;
-        if(!botonesElegidosMoment.contains(btnClick)){
-            if(botonesBloqueados.size()!=16 && !botonesBloqueados.contains(btnClick)){
-                if(botonesElegidos.size()<2){
-                    mostrarBtn(btnClick);
-                    botonesElegidos.add(btnClick);
-                    if(botonesElegidos.size()==2){
-                        botonesElegidosMoment.clear();
-                        Button buttonElegido= botonesElegidos.get(0);
-                        Button buttonElegido2 = botonesElegidos.get(1);
-                        if(!botonesElegidos.get(0).getText().toString().equals(botonesElegidos.get(1).getText().toString())){
-                            Handler handler1 = new Handler();
-                            handler1.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    buttonElegido.setText("-");
-                                    buttonElegido2.setText("-");
-                                }
-                            }, 500);
-                        }else{
-                            mostrarBtn(buttonElegido);
-                            mostrarBtn(buttonElegido2);
-                            botonesBloqueados.add(buttonElegido);
-                            botonesBloqueados.add(buttonElegido2);
-                        }
-                        botonesElegidos.clear();
-                        if(botonesBloqueados.size()==16){
-                            estado = "gano";
-                            botonesBloqueados.clear();
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                fin = Instant.now();
+        if(!botonesElegidosMoment.contains(btnClick) && !botonesBloqueados.contains(btnClick)){
+            if(botonesElegidos.size()<2){
+                mostrarBtn(btnClick);
+                botonesElegidos.add(btnClick);
+                if(botonesElegidos.size()==2){
+                    botonesElegidosMoment.clear();
+                    Button buttonElegido= botonesElegidos.get(0);
+                    Button buttonElegido2 = botonesElegidos.get(1);
+                    if(!botonesElegidos.get(0).getText().toString().equals(botonesElegidos.get(1).getText().toString())){
+                        Handler handler1 = new Handler();
+                        handler1.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                buttonElegido.setText("-");
+                                buttonElegido2.setText("-");
                             }
-                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                                long segundos = fin.getEpochSecond() - inicio.getEpochSecond();
-                                estadisticas.add("Terminó en "+ (segundos) + " seg");
-                            }
-                            Log.d("lol-win","Ganó");
+                        }, 500);
+                    }else{
+                        mostrarBtn(buttonElegido);
+                        mostrarBtn(buttonElegido2);
+                        botonesBloqueados.add(buttonElegido);
+                        botonesBloqueados.add(buttonElegido2);
+                    }
+                    botonesElegidos.clear();
+                    if(botonesBloqueados.size()==16){
+                        estado = "gano";
+                        botonesBloqueados.clear();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            fin = Instant.now();
                         }
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                            long segundos = fin.getEpochSecond() - inicio.getEpochSecond();
+                            estadisticas.add("Terminó en "+ (segundos) + " seg");
+                        }
+                        Log.d("lol-win","Ganó");
                     }
-                    if(botonesElegidos.size()==1){
-                        botonesElegidosMoment.add(btnClick);
-                    }
+                }
+                if(botonesElegidos.size()==1){
+                    botonesElegidosMoment.add(btnClick);
                 }
             }
         }
@@ -165,6 +163,8 @@ public class MemoriaActivity extends AppCompatActivity {
         estado="jugando";
         contador=0;
         botonesElegidos.clear();
+        botonesBloqueados.clear();
+        botonesElegidosMoment.clear();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             inicio = Instant.now();
@@ -209,12 +209,29 @@ public class MemoriaActivity extends AppCompatActivity {
         ((Button) findViewById(R.id.btn43m)).setText(letrasShuffle.get(14));
         ((Button) findViewById(R.id.btn44m)).setText(letrasShuffle.get(15));
 
+        botonesBloqueados.add(findViewById(R.id.btn11m));
+        botonesBloqueados.add(findViewById(R.id.btn12m));
+        botonesBloqueados.add(findViewById(R.id.btn13m));
+        botonesBloqueados.add(findViewById(R.id.btn14m));
+        botonesBloqueados.add(findViewById(R.id.btn21m));
+        botonesBloqueados.add(findViewById(R.id.btn22m));
+        botonesBloqueados.add(findViewById(R.id.btn23m));
+        botonesBloqueados.add(findViewById(R.id.btn24m));
+        botonesBloqueados.add(findViewById(R.id.btn31m));
+        botonesBloqueados.add(findViewById(R.id.btn32m));
+        botonesBloqueados.add(findViewById(R.id.btn33m));
+        botonesBloqueados.add(findViewById(R.id.btn34m));
+        botonesBloqueados.add(findViewById(R.id.btn41m));
+        botonesBloqueados.add(findViewById(R.id.btn42m));
+        botonesBloqueados.add(findViewById(R.id.btn43m));
+        botonesBloqueados.add(findViewById(R.id.btn44m));
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 metodoaEjecutarPasadoDossegundos();
+                botonesBloqueados.clear();
             }
         }, 2000);
 
