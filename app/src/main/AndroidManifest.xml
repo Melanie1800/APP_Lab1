@@ -25,9 +25,9 @@
         <activity
             android:name=".EstadisticsMemoriaActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity2" />
+            android:parentActivityName=".MemoriaActivity2" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".MemoriaActivity2"
             android:exported="false"
             android:parentActivityName=".MainActivity"
             />

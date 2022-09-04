@@ -12,13 +12,9 @@ import android.widget.Button;
 
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MemoriaActivity2 extends AppCompatActivity {
 
     private ArrayList<String> letras = new ArrayList<>();
     private ArrayList<String> estadisticas = new ArrayList<>();
@@ -211,7 +207,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     public void estadisticas(View view){
 
-        Intent intent= new Intent(MainActivity2.this,EstadisticsMemoriaActivity.class);
+        Intent intent= new Intent(MemoriaActivity2.this,EstadisticsMemoriaActivity.class);
         intent.putExtra("estadisticasMem",estadisticas);
         startActivity(intent);
 

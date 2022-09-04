@@ -33,7 +33,7 @@ public class EstadisticsMemoriaActivity extends AppCompatActivity {
         btnNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(EstadisticsMemoriaActivity.this,MainActivity2.class);
+                Intent intent = new Intent(EstadisticsMemoriaActivity.this, MemoriaActivity2.class);
                 startActivity(intent);
             }
         });
